@@ -1,0 +1,15 @@
+.list-button{
+        border: 2px solid #4f94c2;
+        background-color: #92caf0;
+        width: 100%;
+        height: 30px;
+        font-size: 14px;
+        font-family: -webkit-pictograph;
+        cursor: pointer;
+        color:   #043b5f;
+        font-weight: 600;
+        border-radius: 10px;
+    &--dangerous{
+        background-color: rgba(201, 112, 109, 0.774);
+    }
+}

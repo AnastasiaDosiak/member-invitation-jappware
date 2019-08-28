@@ -1,16 +1,15 @@
 import React, { memo } from 'react'
 import MembersList from './components/MembersList/MembersList'
-import ClearButton from './components/ClearButton/ClearButton'
 import ListStatistic from './components/Statistic/ListStatistic'
+import ListCard from '../ListCard/ListCard';
+import '../ListCard/ListCard.scss'
+import Button from '../ListCard/components/Button/Button'
 export default memo(function InvitationList() {
     return (
-        <div className="list">
-            <h1 className="main-heading">
-                List
-                </h1>
+        <ListCard title="Invited users">
             <MembersList />
-            <ClearButton />
+            <Button useDangerousMode={true} text="Clear invitations" icon={<i className="fa fa-trash-alt"></i>} />
             <ListStatistic />
-        </div>
+        </ListCard>
     )
 })

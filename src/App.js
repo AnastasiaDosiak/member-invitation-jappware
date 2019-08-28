@@ -5,8 +5,10 @@ import InvitationList from './components/InvitationList/InvitationList';
 function App() {
   return (
     <div className="App">
+    <section className="content">
     <UsersCatalog/>
     <InvitationList/>
+    </section>
     </div>
   );
 }

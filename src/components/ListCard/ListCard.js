@@ -1,9 +1,12 @@
 import React, { memo } from 'react'
-
-export default memo(function ListCard({children}) {
+import './ListCard.scss'
+export default memo(function ListCard({ children, title }) {
     return (
-        <div>
-            {children}
+        <div className="list-card">
+            <h1 className="list-card__heading">
+                {title}
+            </h1>
+                {children}
         </div>
     )
 })
