@@ -1,1 +1,30 @@
-UserItem
+.user-item {
+    font-size: 14px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: rgba(224, 224, 245, 0.842);    
+    padding: 7px;
+    border-radius: 3px;
+    min-width: 170px;
+
+    &__text {
+        max-width: 145px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin: 0 0.2em 0 0;
+        font-size: 18px;
+        color: #4f94c2;
+        font-weight: 600;
+    }
+
+    &__info {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__icon {
+        margin: 0 7px;
+font-size: 24px;
+    }
+}

@@ -4,7 +4,8 @@ import './UserList.scss'
 export default memo(function UserList() {
     return (
         <div className="user-list">
-            <ListItem />
+            <ListItem  firstName="Baekhyun" lastName="Longnamechinaboy"/>
+            <ListItem  firstName="Luhan" lastName="Sehun"/>
         </div>
     )
 })

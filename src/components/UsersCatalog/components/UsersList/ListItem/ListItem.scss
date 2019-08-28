@@ -1,6 +1,13 @@
 .list-item{
-    text-align: center;
+    margin-top: 20px;
     color:   #043b5f;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 6px 5px 26px -11px rgba(0,0,0,0.75);
+    padding-right: 20px;
+    background-color: #c2d3df;
+    border-radius: 3px;
 }
 .save-button{
     color:   #043b5f;
@@ -8,7 +15,8 @@
     border: 2px solid #4f94c2;
     background-color: #92caf0;
     width: 44px;
-    height: 30px;
+    height: 22px;
     border-radius: 20px;
     cursor: pointer;
+    margin-left: 8px;
 }
