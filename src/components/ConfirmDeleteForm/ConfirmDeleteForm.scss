@@ -27,5 +27,11 @@
         border-radius: 10px;
         cursor: pointer;
         font-size: 13px;
+        &:hover{
+            background-color: rgba(221, 219, 219, 0.747);
+        }
+        &:active{
+            background-color: rgba(185, 180, 180, 0.829);
+        }
     }
 }

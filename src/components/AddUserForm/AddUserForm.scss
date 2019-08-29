@@ -30,6 +30,12 @@
         align-self: center;
         color: #043b5f;
         font-weight: bold;
+        &:hover{
+            background-color: #8bbee0;
+        }
+        &:active{
+            background-color: rgb(139, 179, 206);
+        }
     }
 
     &__close-button {

@@ -19,4 +19,10 @@
     border-radius: 20px;
     cursor: pointer;
     margin-left: 8px;
+    &:hover{
+        background-color:  #96c1dd;
+    }
+    &:active{
+        background-color: #76a3c2;
+    }
 }
