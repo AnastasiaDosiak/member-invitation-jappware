@@ -1,5 +1,4 @@
 import React, { PureComponent } from 'react';
-import classNames from 'classnames';
 import Overlay from '../Overlay/Overlay';
 import './ConfirmDeleteForm.scss'
 export default class ConfirmDeleteForm extends PureComponent {

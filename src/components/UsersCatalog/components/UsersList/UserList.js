@@ -1,11 +1,11 @@
 import React, { memo } from 'react'
 import ListItem from './ListItem/ListItem'
 import './UserList.scss'
-export default memo(function UserList() {
+export default memo(function UserList({ users }) {
+  console.log(users)
     return (
-        <div className="user-list">
-            <ListItem  firstName="Baekhyun" lastName="Longnamechinaboy"/>
-            <ListItem  firstName="Luhan" lastName="Sehun"/>
-        </div>
+        <ul className="user-list">
+            {users.map(({ firstName, lastName, id }) => <li key={id}><ListItem firstName={firstName} lastName={lastName} /></li>)}
+        </ul>
     )
 })
