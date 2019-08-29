@@ -1,0 +1,31 @@
+.confirm-delete {
+    &__form {
+        position: absolute;
+        z-index: 101;
+        top: 35%;
+        left: 41.5%;
+        padding: 20px;
+        background-color: white;
+        border-radius: 5px;
+        box-shadow: 3px 1px 9px -3px rgba($color: rgb(114, 110, 110), $alpha: 1.0);
+    }
+
+    &__question {
+        color: #043b5f;
+        font-weight: 600;
+    }
+
+    &__buttons {
+        display: flex;
+        justify-content: space-around;
+    }
+    &__answer-button{
+        color: #0e212e;
+        font-weight: bold;
+        padding: 6px 21px;
+        border: 1px solid grey;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 13px;
+    }
+}
