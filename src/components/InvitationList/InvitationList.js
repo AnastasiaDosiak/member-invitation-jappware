@@ -6,19 +6,27 @@ import "../ListCard/ListCard.scss";
 import Button from "../ListCard/components/Button/Button";
 import ConfirmDeleteForm from "../ConfirmDeleteForm/ConfirmDeleteForm";
 export default class InvitationList extends PureComponent {
-  render() 
-  {
+  state = { showConfirmDeleteForm: false };
+  handleShowConfirmDeleteForm = event => {
+    this.setState({ showConfirmDeleteForm: true });
+  }
+  handleClear = () => {
+    this.props.onClear()
+    this.handleCloseConfirmDeleteForm()
+  }
+  handleCloseConfirmDeleteForm = () => { this.setState({ showConfirmDeleteForm: false }); }
+  render() {
     return (
       <ListCard title="Invited users">
         <ListStatistic />
         <MembersList onDeleteMember={this.props.onDeleteInvitation} users={this.props.users} />
         <Button
-          onClick={this.props.onClear}
+          onClick={this.handleShowConfirmDeleteForm}
           useDangerousMode={true}
           text="Clear invitations"
-          icon={<i className="fa fa-trash-alt"/>}
+          icon={<i className="fa fa-trash-alt" />}
         />
-        <ConfirmDeleteForm show={false} />
+        {this.state.showConfirmDeleteForm && <ConfirmDeleteForm onReject={this.handleCloseConfirmDeleteForm} onConfirm={this.handleClear} />}
       </ListCard>
     );
   }

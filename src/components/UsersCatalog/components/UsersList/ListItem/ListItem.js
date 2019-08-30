@@ -9,7 +9,7 @@ export default memo(function ListItem({ firstName, lastName, id, onSave }) {
     <div className="list-item">
       <UserItem firstName={firstName} lastName={lastName} />
       <button onClick={handleSave} className="save-button">
-        save
+        invite
       </button>
     </div>
   );
