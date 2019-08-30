@@ -25,6 +25,11 @@ export default class UsersContainer extends PureComponent {
       invitedUsers: []
     });
   };
+  handleDeleteInvitation = (userId) => {
+    this.setState({invitedUsers:[
+      ...this.state.invitedUsers.filter(({id})=> id !== userId)
+    ]})
+  }
   render() {
     return (
       <div className="content">
@@ -36,6 +41,7 @@ export default class UsersContainer extends PureComponent {
         <InvitationList
           onClear={this.handleClearInvitations}
           users={this.state.invitedUsers}
+          onDeleteInvitation = {this.handleDeleteInvitation}
         />
       </div>
     );

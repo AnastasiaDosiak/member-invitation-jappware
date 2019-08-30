@@ -6,11 +6,12 @@ import "../ListCard/ListCard.scss";
 import Button from "../ListCard/components/Button/Button";
 import ConfirmDeleteForm from "../ConfirmDeleteForm/ConfirmDeleteForm";
 export default class InvitationList extends PureComponent {
-  render() {
+  render() 
+  {
     return (
       <ListCard title="Invited users">
         <ListStatistic />
-        <MembersList users={this.props.users} />
+        <MembersList onDeleteMember={this.props.onDeleteInvitation} users={this.props.users} />
         <Button
           onClick={this.props.onClear}
           useDangerousMode={true}

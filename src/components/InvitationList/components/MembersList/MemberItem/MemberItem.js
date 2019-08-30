@@ -2,12 +2,14 @@ import React, { memo } from "react";
 import UserItem from "../../../../UserItem/UserItem";
 import "./MemberItem.scss";
 
-export default memo(function MemberItem({ firstName, lastName }) {
+export default memo(function MemberItem({ firstName, lastName,id, onDeleteItem }) {
+ const handleDeleteItem = () => { onDeleteItem(id)
+ } 
   return (
     <div className="member-item">
       <UserItem firstName={firstName} lastName={lastName} />
       <input className="member-item__checkbox" type="checkbox" />
-      <button className="member-item__delete-button">
+      <button onClick ={handleDeleteItem} className="member-item__delete-button">
         <i className="fa fa-times-circle"/>
       </button>
     </div>
