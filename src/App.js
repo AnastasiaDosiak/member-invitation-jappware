@@ -1,14 +1,13 @@
-import React from 'react';
-import './App.css';
-import UsersCatalog from './components/UsersCatalog/UsersCatalog';
-import InvitationList from './components/InvitationList/InvitationList';
+import React from "react";
+import "./App.css";
+
+import UsersContainer from "./components/UsersContainer/UsersContainer";
 function App() {
   return (
     <div className="App">
-    <section className="content">
-    <UsersCatalog/>
-    <InvitationList/>
-    </section>
+      <section className="content">
+        <UsersContainer />
+      </section>
     </div>
   );
 }
