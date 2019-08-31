@@ -1,14 +1,4 @@
 .add-user {
-    &__form {
-        position: absolute;
-        z-index: 101;
-        top: 35%;
-        left: 41.5%;
-        padding: 50px;
-        background-color: white;
-        border-radius: 5px;
-        box-shadow: 3px 1px 9px -3px rgba($color: rgb(114, 110, 110), $alpha: 1.0);
-    }
 
     &__content {
         margin-top: 10px;
@@ -30,19 +20,27 @@
         align-self: center;
         color: #043b5f;
         font-weight: bold;
-        &:hover{
+
+        &:hover {
             background-color: #8bbee0;
         }
-        &:active{
+
+        &:active {
             background-color: rgb(139, 179, 206);
         }
     }
 
     &__close-button {
         float: right;
-margin: -38px -36px 0 0;
-border: none;
-font-size: 16px;
-cursor: pointer;
+        margin: -38px -36px 0 0;
+        border: none;
+        font-size: 16px;
+        cursor: pointer;
+        background-color: white;
+    }
+    &__error-message{
+        color: red;
+        font-size: 14px;
+        padding-bottom: 20px;
     }
 }

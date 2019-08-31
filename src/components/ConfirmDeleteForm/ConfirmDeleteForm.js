@@ -1,12 +1,13 @@
 import React, { PureComponent } from 'react';
 import Overlay from '../Overlay/Overlay';
 import './ConfirmDeleteForm.scss'
+import Form from '../Form/Form';
 export default class ConfirmDeleteForm extends PureComponent {
     render() {
-        const {  onConfirm, onReject } = this.props;
-        return  (
+        const { onConfirm, onReject } = this.props;
+        return (
             <>
-                <form className="confirm-delete__form">
+                <Form >
                     <p className="confirm-delete__question">
                         Are you sure to delete this ?
                         </p>
@@ -18,10 +19,10 @@ export default class ConfirmDeleteForm extends PureComponent {
                             no
                     </button>
                     </div>
-                </form>
-                <Overlay show={true} />
+                </Form>
+                <Overlay onClick={onReject} show={true} />
             </ >
-        ) 
+        )
     }
 }
 

@@ -15,17 +15,19 @@ export default class InvitationList extends PureComponent {
     this.handleCloseConfirmDeleteForm()
   }
   handleCloseConfirmDeleteForm = () => { this.setState({ showConfirmDeleteForm: false }); }
+
   render() {
+
     return (
-      <ListCard title="Invited users">
-        <ListStatistic />
-        <MembersList onDeleteMember={this.props.onDeleteInvitation} users={this.props.users} />
-        <Button
+      <ListCard greenMode={this.props.isDragingOver} innerRef={this.props.innerRef} title="Invited users">
+        <ListStatistic invitedLength={this.props.invitedLength} activeLength={this.props.activeLength} />
+        <MembersList onStatusChange={this.props.onStatusChange} onDeleteMember={this.props.onDeleteInvitation} users={this.props.users} />
+        {this.props.invitedLength > 0 && <Button
           onClick={this.handleShowConfirmDeleteForm}
           useDangerousMode={true}
           text="Clear invitations"
           icon={<i className="fa fa-trash-alt" />}
-        />
+        />}
         {this.state.showConfirmDeleteForm && <ConfirmDeleteForm onReject={this.handleCloseConfirmDeleteForm} onConfirm={this.handleClear} />}
       </ListCard>
     );
