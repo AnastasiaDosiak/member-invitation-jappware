@@ -6,8 +6,14 @@ import "../ListCard/ListCard.scss";
 import Button from "../ListCard/components/Button/Button";
 import ConfirmDeleteForm from "../ConfirmDeleteForm/ConfirmDeleteForm";
 export default class InvitationList extends PureComponent {
-  state = { showConfirmDeleteForm: false };
-  handleShowConfirmDeleteForm = event => {
+  state = { showConfirmDeleteForm: false, activeLength: 0 };
+  static getDerivedStateFromProps=({users}) =>{
+    const newActiveLength = users.filter(({accepted})=> accepted).length
+    return (
+      {activeLength: newActiveLength}
+    )
+  } 
+    handleShowConfirmDeleteForm = event => {
     this.setState({ showConfirmDeleteForm: true });
   }
   handleClear = () => {
@@ -20,7 +26,7 @@ export default class InvitationList extends PureComponent {
 
     return (
       <ListCard greenMode={this.props.isDragingOver} innerRef={this.props.innerRef} title="Invited users">
-        <ListStatistic invitedLength={this.props.invitedLength} activeLength={this.props.activeLength} />
+        <ListStatistic invitedLength={this.props.invitedLength} activeLength={this.state.activeLength} />
         <MembersList onStatusChange={this.props.onStatusChange} onDeleteMember={this.props.onDeleteInvitation} users={this.props.users} />
         {this.props.invitedLength > 0 && <Button
           onClick={this.handleShowConfirmDeleteForm}

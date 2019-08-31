@@ -97,8 +97,6 @@ export default class UsersContainer extends PureComponent {
             )}
 
           </Droppable>
-
-
         </DragDropContext>
       </div >
     );

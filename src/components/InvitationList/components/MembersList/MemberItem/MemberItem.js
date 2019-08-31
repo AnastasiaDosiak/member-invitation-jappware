@@ -15,6 +15,7 @@ export default class MemberItem extends PureComponent {
     this.props.onDeleteItem(this.props.id)
     this.handleCloseConfirmDeleteForm()
   }
+  
   render() {
     const { firstName, lastName, accepted } = this.props
     return (
