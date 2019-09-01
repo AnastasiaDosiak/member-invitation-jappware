@@ -5,12 +5,36 @@ import "./UsersContainer.scss";
 import mockUsers from "../UsersCatalog/utils/mockUsers.json";
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 export default class UsersContainer extends PureComponent {
-  state = { allUsers: mockUsers, invitedUsers: [] };
+  state = { allUsers: mockUsers, invitedUsers: [], isUserEditing: false, userEditingIds: [] };
+  componentDidMount() {
+    const allUsers = JSON.parse(localStorage.getItem("allUsers"))
+    console.log(allUsers)
+    allUsers && this.setState({allUsers :[...allUsers]})
+    const invitedUsers = JSON.parse(localStorage.getItem("invitedUsers"))
+    invitedUsers && this.setState({ invitedUsers :[...invitedUsers]})
+  }
+  componentDidUpdate(_prevProps, prevState) {
+    localStorage.setItem("allUsers", JSON.stringify(this.state.allUsers))
+    localStorage.setItem("invitedUsers", JSON.stringify(this.state.invitedUsers))
+  }
   handleAdd = (firstName, lastName, id) => {
     this.setState({
       allUsers: [{ firstName, lastName, id }, ...this.state.allUsers]
     });
   };
+  handleEdit = (firstName, lastName, id) => {
+    this.setState({
+      allUsers:
+        this.state.allUsers.map((user) => {
+          if (user.id === id) {
+            return { ...user, firstName, lastName }
+          } else {
+            return user
+          }
+        })
+
+    })
+  }
   handleSaveInvitation = (firstName, lastName, id) => {
     !this.state.invitedUsers.find(user => user.id === id) &&
       this.setState({
@@ -18,9 +42,14 @@ export default class UsersContainer extends PureComponent {
           ...this.state.invitedUsers,
           { firstName, lastName, id, invited: true, accepted: false }
         ]
-      });
+      })
   };
-
+  handleStartEditUser = (userEditingId) => {
+    this.setState({ isUserEditing: true, userEditingIds: [...this.state.userEditingIds, userEditingId] })
+  }
+  handleStopEditUser = (userEditingId) => {
+    this.setState({ isUserEditing: false, userEditingIds: [...this.state.userEditingIds.filter((id) => id !== userEditingId)] })
+  }
   handleClearInvitations = () => {
     this.setState({
       invitedUsers: []
@@ -55,7 +84,7 @@ export default class UsersContainer extends PureComponent {
 
     if (destination.droppableId === "invitationList") {
       const { firstName, lastName } = this.state.allUsers.find((user) => user.id === draggableId)
-      this.handleSaveInvitation(firstName, lastName, draggableId)
+      !this.state.userEditingIds.includes(draggableId) && this.handleSaveInvitation(firstName, lastName, draggableId)
     }
   }
 
@@ -69,11 +98,14 @@ export default class UsersContainer extends PureComponent {
             {(provided, snapshot) => (
               <>
                 <UsersCatalog
+                  onStartEdit={this.handleStartEditUser}
+                  onStopEdit={this.handleStopEditUser}
                   isDragingOver={snapshot.isDraggingOver}
                   innerRef={provided.innerRef}
                   onSave={this.handleSaveInvitation}
                   onAdd={this.handleAdd}
                   users={this.state.allUsers}
+                  onEdit={this.handleEdit}
                 />
                 <div className="dnd-staff-placeholder">{provided.placeholder}</div>
               </>

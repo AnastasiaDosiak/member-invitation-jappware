@@ -21,7 +21,7 @@ export default class MemberItem extends PureComponent {
     return (
       <div className="member-item">
         <UserItem firstName={firstName} lastName={lastName} />
-        <input value={accepted} onChange={this.handleOnSubmit} className="member-item__checkbox" type="checkbox" />
+        <input checked={accepted} onChange={this.handleOnSubmit} className="member-item__checkbox" type="checkbox" />
         <button onClick={this.handleShowConfirmDeleteForm} className="member-item__delete-button">
           <i className="fa fa-times-circle" />
         </button>

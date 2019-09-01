@@ -2,7 +2,7 @@ import React, { memo } from "react";
 import ListItem from "./ListItem/ListItem";
 import "./UserList.scss";
 import { Draggable } from 'react-beautiful-dnd';
-export default memo(function UserList({ users, onSave }) {
+export default memo(function UserList({ users, onSave, onEdit, onStartEdit, onStopEdit }) {
   return (
     <ul className="user-list">
       {users.map(({ firstName, lastName, id }, index) => (
@@ -23,8 +23,10 @@ export default memo(function UserList({ users, onSave }) {
                 onSave={onSave}
                 firstName={firstName}
                 lastName={lastName}
+                onEdit={onEdit}
+                onStartEdit={onStartEdit} onStopEdit={onStopEdit}
               />
-        
+
             </li>
           )}
         </Draggable>
