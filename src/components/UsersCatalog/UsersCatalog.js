@@ -1,6 +1,5 @@
 import React, { PureComponent } from "react";
 import UserList from "./components/UsersList/UserList";
-import "./UsersCatalog.scss";
 import ListCard from "../ListCard/ListCard";
 import "../ListCard/ListCard.scss";
 import Button from "../ListCard/components/Button/Button";
@@ -8,10 +7,10 @@ import AddUserForm from "../AddUserForm/AddUserForm";
 
 export default class UsersCatalog extends PureComponent {
   state = { showAddUserForm: false };
-  handleShowAddUserForm = event => {
+  handleShowAddUserForm = () => {
     this.setState({ showAddUserForm: true });
   };
-  handleClose = event => {
+  handleClose = () => {
     this.setState({ showAddUserForm: false });
   };
   render() {
