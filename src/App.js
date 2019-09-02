@@ -5,9 +5,7 @@ import UsersContainer from "./components/UsersContainer/UsersContainer";
 function App() {
   return (
     <div className="App">
-      <section className="content">
-        <UsersContainer />
-      </section>
+      <UsersContainer />
     </div>
   );
 }

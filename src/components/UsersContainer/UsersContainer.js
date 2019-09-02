@@ -91,7 +91,7 @@ export default class UsersContainer extends PureComponent {
 
   render() {
     return (
-      <div className="content">
+      <section className="content">
         <DragDropContext onDragEnd={this.onDragEnd}>
 
           <Droppable droppableId="userCatalog">
@@ -131,7 +131,7 @@ export default class UsersContainer extends PureComponent {
 
           </Droppable>
         </DragDropContext>
-      </div >
+      </section >
     );
   }
 }
