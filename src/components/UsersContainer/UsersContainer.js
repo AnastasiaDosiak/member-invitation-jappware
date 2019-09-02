@@ -98,6 +98,7 @@ export default class UsersContainer extends PureComponent {
             {(provided, snapshot) => (
               <>
                 <UsersCatalog
+                    userEditingIds={this.state.userEditingIds}
                   onStartEdit={this.handleStartEditUser}
                   onStopEdit={this.handleStopEditUser}
                   isDragingOver={snapshot.isDraggingOver}

@@ -2,11 +2,11 @@ import React, { memo } from "react";
 import ListItem from "./ListItem/ListItem";
 import "./UserList.scss";
 import { Draggable } from 'react-beautiful-dnd';
-export default memo(function UserList({ users, onSave, onEdit, onStartEdit, onStopEdit }) {
+export default memo(function UserList({ users, onSave, onEdit, onStartEdit, onStopEdit, userEditingIds }) {
   return (
     <ul className="user-list">
       {users.map(({ firstName, lastName, id }, index) => (
-        <Draggable
+        !userEditingIds.includes(id) ?   <Draggable
           key={id}
           draggableId={id}
           index={index}>
@@ -29,7 +29,19 @@ export default memo(function UserList({ users, onSave, onEdit, onStartEdit, onSt
 
             </li>
           )}
-        </Draggable>
+        </Draggable> :   <li
+       key={id}
+      >
+        <ListItem
+        id={id}
+        onSave={onSave}
+        firstName={firstName}
+        lastName={lastName}
+        onEdit={onEdit}
+        onStartEdit={onStartEdit} onStopEdit={onStopEdit}
+        />
+
+        </li>
       ))}
     </ul>
   );

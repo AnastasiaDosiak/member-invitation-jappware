@@ -17,7 +17,7 @@ export default class UsersCatalog extends PureComponent {
   render() {
     return (
       <ListCard innerRef={this.props.innerRef} title="User's catalog">
-        <UserList onStartEdit={this.props.onStartEdit} onStopEdit={this.props.onStopEdit} onEdit={this.props.onEdit} onSave={this.props.onSave} users={this.props.users} />
+        <UserList userEditingIds={this.props.userEditingIds} onStartEdit={this.props.onStartEdit} onStopEdit={this.props.onStopEdit} onEdit={this.props.onEdit} onSave={this.props.onSave} users={this.props.users} />
         <Button onClick={this.handleShowAddUserForm} text="Add a new user" />
         {this.state.showAddUserForm && (
           <AddUserForm
