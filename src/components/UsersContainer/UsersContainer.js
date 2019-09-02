@@ -8,7 +8,6 @@ export default class UsersContainer extends PureComponent {
   state = { allUsers: mockUsers, invitedUsers: [], isUserEditing: false, userEditingIds: [] };
   componentDidMount() {
     const allUsers = JSON.parse(localStorage.getItem("allUsers"))
-    console.log(allUsers)
     allUsers && this.setState({allUsers :[...allUsers]})
     const invitedUsers = JSON.parse(localStorage.getItem("invitedUsers"))
     invitedUsers && this.setState({ invitedUsers :[...invitedUsers]})
